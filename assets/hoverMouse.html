@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mouse</title>
+    
+    <style>
+      html,
+      body {
+        padding: 0;
+        margin: 0;
+        font-family: sans-serif;
+        background-color: #1f2532;
+      }
+
+      * {
+        box-sizing: border-box;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: translate(-50%, -50%) scale(0.5);
+          opacity: 1;
+        }
+        100% {
+          transform: translate(-50%, -50%) scale(1);
+          opacity: 0;
+        }
+      }
+      .a2n_mouse {
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        pointer-events: none;
+        transform: rotate(-90deg) scale(2.625);
+        z-index: 1;
+      }
+      .a2n_mouse svg {
+        width: 100%;
+        position: absolute;
+        transform: rotate(-90deg);
+        transition: 600ms all cubic-bezier(0.23, 1, 0.32, 1);
+      }
+      .a2n_mouse svg path {
+        width: 20px;
+        height: 20px;
+        fill: #000;
+        opacity: 0.8;
+        transition: 600ms all cubic-bezier(0.23, 1, 0.32, 1);
+      }
+      .swiper {
+        width: 100%;
+        background: red;
+        height: 40vh;
+        margin-top: 100px;
+      }
+
+      
+
+      .button {
+        position: absolute;
+        width: 70px;
+        height: 70px;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2;
+        cursor: pointer;
+      }
+      .button:after {
+        content: "";
+        position: absolute;
+        border: 1px solid #fff;
+        width: calc(100% - 2px);
+        height: calc(100% - 2px);
+        border-radius: 50%;
+        top: 0;
+        left: 0;
+      }
+      .button:before {
+        content: "";
+        position: absolute;
+        width: 150%;
+        height: 150%;
+        border-radius: 50%;
+        left: 50%;
+        top: 50%;
+        background-color: #fff;
+        transform: translate(-50%, -50%) scale(0);
+        transform-origin: 50% 50%;
+      }
+      .button.pulse span {
+        color: #000;
+      }
+      .button.pulse:before {
+        animation: pulse 1000ms forwards cubic-bezier(0.23, 1, 0.32, 1);
+      }
+      .button span {
+        font-size: 10px;
+        color: #fff;
+        white-space: nowrap;
+        transition: 600ms all cubic-bezier(0.23, 1, 0.32, 1);
+      }
+      .a2n_mouse.button-hover svg {
+        transform: rotate(-90deg) scale(6);
+      }
+      .a2n_mouse.button-hover svg::before {
+        content: '';
+        
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <p style="color:#fff"></p> -->
+    <div class="swiper">
+      <div class="button"><span>Enter</span></div>
+    </div>
+    <div class="a2n_mouse">
+      <svg
+        viewBox="0 0 150 150"
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+      >
+        <path
+          d="M75,100 C88.8071187,100 100,88.8071187 100,75 C100,61.1928813 88.8071187,50 75,50 C61.1928813,50 50,61.1928813 50,75 C50,88.8071187 61.1928813,100 75,100 Z"
+        ></path>
+      </svg>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="../assets/js/app.js"></script>
+  </body>
+</html>
