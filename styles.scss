@@ -144,16 +144,15 @@
   width: 100%;
   max-width: 416px;
   .blog_start {
+    width: 100%;
     max-height: 305px;
     margin-bottom: 20px;
-    a {
-      display: block;
-      overflow: hidden;
-    }
+    overflow: hidden;
     img {
       width: 100%;
       max-width: 100%;
       height: 100%;
+      object-fit: cover;
       position: relative;
       will-change: transform;
       transition: transform 0.3s ease;
@@ -221,6 +220,10 @@
         transition: color 0.3s ease;
         font-family: inherit;
         color: inherit;
+        transition: all 0.3s ease;
+        &:hover {
+          color: #495bed;
+        }
       }
     }
     .blog_date {
@@ -231,10 +234,32 @@
           width: 5px;
           height: 5px;
           border-radius: 50%;
-          background: #A5A6AA;
+          background: #a5a6aa;
           margin: 2px 10px;
         }
       }
+    }
+  }
+}
+@media (max-width: 1024px) {
+  .a2n-blog_card {
+    .blog_contents {
+      .blog_categories {
+        margin-bottom: 8px;
+      }
+      .blog_title {
+        h2 {
+          a {
+            font-size: 20px;
+            line-height: 24px;
+            height: 24px;
+            -webkit-line-clamp: 3;
+          }
+        }
+      }
+    }
+    .blog-inner_items {
+      margin-top: 8px;
     }
   }
 }
