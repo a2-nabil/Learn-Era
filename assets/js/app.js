@@ -98,7 +98,7 @@ $(window).on("load", function () {
 
   window.requestAnimationFrame(move);
 
-  $(".button").on("mouseenter", function () {
+  $(".swiper").on("mouseenter", function () {
     hovered = true;
     pulsed = false;
     activeButton = $(this);
